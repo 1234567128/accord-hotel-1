@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test API</title>
+</head>
+<body>
+    <h1>Test API DELETE</h1>
+    <button onclick="testDelete()">Supprimer la réservation 1</button>
+    <div id="result"></div>
+
+    <script>
+        async function testDelete() {
+            try {
+                const response = await fetch('http://localhost:3000/api/bookings/1', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+                
+                console.log('Response status:', response.status);
+                console.log('Response ok:', response.ok);
+                console.log('Content-Type:', response.headers.get('content-type'));
+                
+                const result = await response.json();
+                console.log('Result:', result);
+                
+                document.getElementById('result').innerHTML = `
+                    <h3>Succès!</h3>
+                    <pre>${JSON.stringify(result, null, 2)}</pre>
+                `;
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = `
+                    <h3>Erreur!</h3>
+                    <pre>${error.message}</pre>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

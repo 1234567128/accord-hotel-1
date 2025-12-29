@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.env
+hotel_miranda.db
+data/
+.DS_Store
+*.tmp
+*.temp

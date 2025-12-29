@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - ACORD HOTEL</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="modal-styles.css">
+</head>
+<body>
+    <div class="admin-header">
+        <div class="admin-header-content">
+            <div class="admin-logo">
+                <img src="assets/logo.png" alt="ACORD HOTEL" style="width: 150px;">
+                <h1>Administration</h1>
+            </div>
+            <div class="admin-user">
+                <span><i class="ri-admin-line"></i> Administrateur</span>
+                <button class="btn btn-secondary" onclick="goToMainSite()">
+                    <i class="ri-home-line"></i> Site Principal
+                </button>
+                <button class="btn btn-logout" onclick="adminLogout()">
+                    <i class="ri-logout-box-line"></i> Déconnexion
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="admin-container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalRooms">0</div>
+                <div class="stat-label">Total Chambres</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalBookings">0</div>
+                <div class="stat-label">Total Réservations</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="availableRooms">0</div>
+                <div class="stat-label">Chambres Disponibles</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="todayRevenue">0</div>
+                <div class="stat-label">Revenus du Jour</div>
+            </div>
+        </div>
+
+        <div class="admin-grid">
+            <div class="room-management">
+                <h3><i class="ri-door-line"></i> Gestion des Chambres</h3>
+                <button class="btn btn-primary" onclick="toggleAddRoomForm()">
+                    <i class="ri-add-line"></i> Ajouter une chambre
+                </button>
+                <div id="addRoomForm" style="display: none; margin-top: 1rem;">
+                    <form id="newRoomForm">
+                        <div style="display: grid; gap: 1rem;">
+                            <input type="text" name="name" placeholder="Nom de la chambre" required>
+                            <input type="number" name="price" placeholder="Prix par nuit" required>
+                            <input type="number" name="capacity" placeholder="Capacité (personnes)" min="1" max="10" required>
+                            <select name="type" required>
+                                <option value="">Type de chambre</option>
+                                <option value="simple">Simple</option>
+                                <option value="double">Double</option>
+                                <option value="suite">Suite</option>
+                            </select>
+                            <textarea name="description" placeholder="Description de la chambre" rows="3" required></textarea>
+                            <button type="submit" class="btn btn-primary">Ajouter</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="room-list" id="roomsList">
+                    <!-- Les chambres seront chargées ici -->
+                </div>
+            </div>
+        </div>
+
+        <div class="booking-section">
+            <h3><i class="ri-calendar-line"></i> Réservations Récentes</h3>
+            <div class="booking-info-scroll">
+                <p style="margin-bottom: 1rem; color: #666; font-style: italic;">
+                    <i class="ri-information-line"></i> Utilisez la barre de défilement horizontale pour voir toutes les informations des réservations
+                </p>
+            </div>
+            <div class="booking-list">
+                <div class="bookings-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Client</th>
+                                <th>Contact</th>
+                                <th>Chambre</th>
+                                <th>Dates</th>
+                                <th>Invités</th>
+                                <th>Prix</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookingsTable">
+                            <!-- Les réservations seront chargées ici -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmation de suppression -->
+    <div id="deleteModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="ri-delete-bin-line"></i> Confirmation de Suppression</h3>
+                <button class="modal-close" onclick="closeDeleteModal()">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Êtes-vous sûr de vouloir supprimer cette<span id="deleteTypeText"></span> ?</p>
+                <p style="color: #dc3545; font-weight: bold;">Cette action est irréversible.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeDeleteModal()">
+                    <i class="ri-close-line"></i> Annuler
+                </button>
+                <button class="btn btn-danger" id="confirmDeleteBtn">
+                    <i class="ri-delete-bin-line"></i> Supprimer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

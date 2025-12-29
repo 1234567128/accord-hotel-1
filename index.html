@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="admin-auth.css" />
+    <title>ACORD HOTEL | Hébergement, Restauration & Cave</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__bar">
+        <div class="nav__header">
+          <div class="logo nav__logo">
+            <img src="assets/logo.png" alt="ACORD HOTEL" style="width: 170px;" />
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#room">Room</a></li>
+          <li><a href="#feature">Feature</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#" id="adminBtn" class="admin-link" style="display: none;">
+            <i class="ri-shield-user-line"></i> Administration
+          </a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="header" id="home">
+      <div class="section__container header__container">
+        <p class="section__subheader">ACCORD HOTEL</p>
+        <h1>Votre Havre de<br />Paix à Yaoundé</h1>
+        <a href="checkout.html">
+          <button class="btn">Réserver Maintenant</button>
+        </a>
+      </div>
+    </header>
+
+    <section class="booking">
+      <div class="section__container booking__container">
+        <form id="availabilityForm">
+          <div class="input__group">
+            <label for="arrival">Date d'Arrivée</label>
+            <input type="date" id="arrival" name="arrival" required />
+          </div>
+          <div class="input__group">
+            <label for="departure">Date de Départ</label>
+            <input type="date" id="departure" name="departure" required />
+          </div>
+          <div class="input__group">
+            <label for="guests">Nombre d'Invités</label>
+            <input type="number" id="guests" name="guests" min="1" max="10" placeholder="Nombre d'invités" required />
+          </div>
+          <button type="submit" class="btn">Vérifier la Disponibilité</button>
+        </form>
+        <div id="availabilityResults" class="availability-results" style="display: none;">
+          <h3>Chambres Disponibles</h3>
+          <div id="roomsList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section__container about__container">
+        <div class="about__grid">
+          <div class="about__image">
+            <img src="assets/image 1.jpeg" alt="about" />
+          </div>
+          <div class="about__card">
+            <span><i class="ri-user-line"></i></span>
+            <h4>Équipe Professionnelle</h4>
+            <p>
+              Un service d'excellence pour garantir votre séjour parfait
+            </p>
+          </div>
+          <div class="about__image">
+            <img src="assets/image 4.jpeg" alt="about" />
+          </div>
+          <div class="about__card">
+            <span><i class="ri-calendar-check-line"></i></span>
+            <h4>Chambres Luxueuses</h4>
+            <p>Un confort inégalé dans nos chambres d'exception</p>
+          </div>
+        </div>
+        <div class="about__content">
+          <p class="section__subheader">À PROPOS</p>
+          <h2 class="section__header">Découvrez ACORD HOTEL</h2>
+          <p class="section__description">
+            Bienvenue à ACORD HOTEL, votre établissement de référence à Yaoundé 
+            proposant un hébergement de luxe, une restauration gastronomique 
+            et une cave à vins d'exception. Situé à Nkomo, à 100 mètres du dépôt de bois, 
+            nous vous offrons une expérience unique où confort, service et raffinement se rencontrent.
+          </p>
+          <a href="checkout.html" class="btn-link">
+          <button class="btn">Réserver Maintenant</button>
+        </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="room__container" id="room">
+      <p class="section__subheader">CHAMBRES</p>
+      <h2 class="section__header">Nos Hébergements d'Exception</h2>
+      <div class="room__grid">
+        <div class="room__card">
+          <img src="assets/room-1.jpg" alt="room" />
+          <div class="room__card__details">
+            <div>
+              <h4>Suite Deluxe</h4>
+              <p>Chambres élégamment aménagées pour un confort absolu.</p>
+            </div>
+            <h3>75 000<span>/nuit</span></h3>
+          </div>
+        </div>
+        <div class="room__card">
+          <img src="assets/room-2.jpg" alt="room" />
+          <div class="room__card__details">
+            <div>
+              <h4>Suite Familiale</h4>
+              <p>Plusieurs chambres avec salon commun pour votre famille.</p>
+            </div>
+            <h3>125 000<span>/nuit</span></h3>
+          </div>
+        </div>
+        <div class="room__card">
+          <img src="assets/room-3.jpg" alt="room" />
+          <div class="room__card__details">
+            <div>
+              <h4>Penthouse Luxe</h4>
+              <p>
+                Hébergements premium aux derniers étages avec vue panoramique.
+              </p>
+            </div>
+            <h3>200 000<span>/nuit</span></h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro">
+      <div class="section__container intro__container">
+        <div class="intro__cotent">
+          <p class="section__subheader">VIDÉO PRÉSENTATION</p>
+          <h2 class="section__header">Découvrez Notre Établissement de Luxe</h2>
+          <p class="section__description">
+            Que vous cherchiez une retraite exclusive et confortable ou une 
+            expérience immersive, ACORD HOTEL vous promet un séjour inoubliable 
+            où les profondeurs du confort et de l'excitation attendent votre arrivée.
+          </p>
+        <a href="checkout.html">
+          <button class="btn">Réserver Maintenant</button>
+        </a>
+        </div>
+        <div class="intro__video">
+          <video src="assets/luxury.mp4" autoplay muted loop></video>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container feature__container" id="feature">
+      <p class="section__subheader">INSTALLATIONS</p>
+      <h2 class="section__header">Nos Services Prestigieux</h2>
+      <div class="feature__grid">
+        <div class="feature__card">
+          <span><i class="ri-thumb-up-line"></i></span>
+          <h4>Excellence Reconnue</h4>
+          <p>
+            Nous sommes fiers d'offrir des services qui reçoivent constamment 
+            d'excellentes évaluations et avis positifs.
+          </p>
+        </div>
+        <div class="feature__card">
+          <span><i class="ri-time-line"></i></span>
+          <h4>Calme Absolu</h4>
+          <p>
+            Nous comprenons que la paix et le repos ininterrompu sont essentiels 
+            pour une expérience revitalisante.
+          </p>
+        </div>
+        <div class="feature__card">
+          <span><i class="ri-map-pin-line"></i></span>
+          <h4>Emplacement Stratégique</h4>
+          <p>
+            Situé à Nkomo, à 100 mètres du dépôt de bois, au cœur de Yaoundé, 
+            notre emplacement est idéal pour vos déplacements.
+          </p>
+        </div>
+        <div class="feature__card">
+          <span><i class="ri-close-circle-line"></i></span>
+          <h4>Annulation Gratuite</h4>
+          <p>
+            Nous comprenons que les plans de voyage peuvent changer, 
+            c'est pourquoi nous offrons la flexibilité de l'annulation gratuite.
+          </p>
+        </div>
+        <div class="feature__card">
+          <span><i class="ri-wallet-line"></i></span>
+          <h4>Options de Paiement</h4>
+          <p>
+            ACORD HOTEL offre une gamme d'options de paiement pratiques 
+            pour répondre à vos préférences.
+          </p>
+        </div>
+        <div class="feature__card">
+          <span><i class="ri-coupon-line"></i></span>
+          <h4>Offres Spéciales</h4>
+          <p>
+            Que vous planifiiez une escapade romantique ou un voyage d'affaires, 
+            nos offres spécialement conçues répondent à tous vos besoins.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu" id="menu">
+      <div class="section__container menu__container">
+        <div class="menu__header">
+          <div>
+            <p class="section__subheader">RESTAURATION</p>
+            <h2 class="section__header">Notre Menu Gastronomique</h2>
+          </div>
+          <div class="section__nav">
+            <span><i class="ri-arrow-left-line"></i></span>
+            <span><i class="ri-arrow-right-line"></i></span>
+          </div>
+        </div>
+        <ul class="menu__items">
+          <li>
+            <img src="assets/menu-1.jpg" alt="menu" />
+            <div class="menu__details">
+              <h4>Poulet DG</h4>
+              <p>
+                Notre spécialité camerounaise, poulet sauté aux légumes et plantains.
+              </p>
+            </div>
+          </li>
+          <li>
+            <img src="assets/menu-2.jpg" alt="menu" />
+            <div class="menu__details">
+              <h4>Thé ou Café</h4>
+              <p>
+                Un choix classique pour votre dose quotidienne de réconfort et de sérénité.
+              </p>
+            </div>
+          </li>
+          <li>
+            <img src="assets/menu-3.jpg" alt="menu" />
+            <div class="menu__details">
+              <h4>Porridge Chia</h4>
+              <p>
+                Notre porridge chia est un délice petit-déjeuner nutritif et sain.
+              </p>
+            </div>
+          </li>
+          <li>
+            <img src="assets/menu-4.jpg" alt="menu" />
+            <div class="menu__details">
+              <h4>Parfait aux Fruits</h4>
+              <p>
+                Notre parfait aux fruits est un chef-d'œuvre culinaire de fraîcheur.
+              </p>
+            </div>
+          </li>
+          <li>
+            <img src="assets/menu-5.jpg" alt="menu" />
+            <div class="menu__details">
+              <h4>Sélection de Marmelades</h4>
+              <p>
+                Notre sélection de marmelades est un délicieux mélange de conserves artisanales.
+              </p>
+            </div>
+          </li>
+          <li>
+            <img src="assets/menu-6.jpg" alt="menu" />
+            <div class="menu__details">
+              <h4>Planche de Fromages</h4>
+              <p>
+                Notre planche de fromages célèbre le monde riche et divers des fromages.
+              </p>
+            </div>
+          </li>
+        </ul>
+        <div class="menu__images">
+          <img src="assets/menu-7.jpg" alt="menu" />
+          <img src="assets/menu-8.jpg" alt="menu" />
+          <img src="assets/menu-9.jpg" alt="menu" />
+        </div>
+        <ul class="menu__banner">
+          <li>
+            <span><i class="ri-file-text-line"></i></span>
+            <h4>15k</h4>
+            <p> Clients Satisfaits</p>
+          </li>
+          <li>
+            <span><i class="ri-user-line"></i></span>
+            <h4>50+</h4>
+            <p>Collaborateurs Actifs</p>
+          </li>
+          <li>
+            <span><i class="ri-function-line"></i></span>
+            <h4>3</h4>
+            <p>Services Principaux</p>
+          </li>
+          <li>
+            <span><i class="ri-lightbulb-flash-line"></i></span>
+            <h4>10+</h4>
+            <p>Ans d'Excellence</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section__container news__container" id="news">
+      <div class="news__header">
+        <div>
+          <p class="section__subheader">ACTUALITÉS</p>
+          <h2 class="section__header">Nos Dernières Nouvelles</h2>
+        </div>
+        <div class="section__nav">
+          <span><i class="ri-arrow-left-line"></i></span>
+          <span><i class="ri-arrow-right-line"></i></span>
+        </div>
+      </div>
+      <div class="news__grid">
+        <div class="news__card">
+          <img src="assets/news-1.jpg" alt="news" />
+          <div class="news__card__title">
+            <p>25 Mars 2024</p>
+            <p>Par Marie</p>
+          </div>
+          <h4>Découverte des Trésors Culinaires Camerounais.</h4>
+          <p>
+            Suivez Marie dans une aventure gastronomique à travers les saveurs 
+            authentiques de notre restaurant ACORD HOTEL.
+          </p>
+        </div>
+        <div class="news__card">
+          <img src="assets/news-2.jpg" alt="news" />
+          <div class="news__card__title">
+            <p>15 Juin 2024</p>
+            <p>Par Jean</p>
+          </div>
+          <h4>Équilibre Corps et Âme à ACORD HOTEL.</h4>
+          <p>
+            Découvrez nos traitements spa, installations de fitness et 
+            pratiques de bien-être pour vous sentir revitalisé.
+          </p>
+        </div>
+        <div class="news__card">
+          <img src="assets/news-3.jpg" alt="news" />
+          <div class="news__card__title">
+            <p>08 Août 2024</p>
+            <p>Par Aline</p>
+          </div>
+          <h4>Activités de Plein Air près d'ACORD HOTEL.</h4>
+          <p>
+            Des sentiers de randonnée aux sports nautiques, découvrez 
+            les merveilles de la nature autour de notre hôtel.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="logo footer__logo">
+            <img src="assets/logo.jpg" alt="ACORD HOTEL" style="height: 120px; width: auto;" />
+          </div>
+          <p class="section__description">
+            ACORD HOTEL est votre établissement de référence à Yaoundé, 
+            proposant un hébergement de luxe, une restauration gastronomique 
+            et une cave à vins d'exception depuis plus de 10 ans.
+          </p>
+          <ul class="footer__socials">
+            <li>
+              <a href="#"><i class="ri-youtube-fill"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-facebook-fill"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-linkedin-fill"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <div class="footer__links">
+            <li><a href="#">Réservation en Ligne</a></li>
+            <li><a href="#">Hébergement</a></li>
+            <li><a href="#">Restauration</a></li>
+            <li><a href="#">Cave à Vins</a></li>
+            <li><a href="#">Offres Spéciales</a></li>
+            <li><a href="#">Service Client</a></li>
+          </div>
+        </div>
+        <div class="footer__col">
+          <h4>Nous Contacter</h4>
+          <div class="footer__links">
+            <li>
+              <span><i class="ri-phone-fill"></i></span>
+              <div>
+                <h5>Téléphone</h5>
+                <p>+237 222 123 456</p>
+              </div>
+            </li>
+            <li>
+              <span><i class="ri-record-mail-line"></i></span>
+              <div>
+                <h5>Email</h5>
+                <p>info@acordhotel.com</p>
+              </div>
+            </li>
+            <li>
+              <span><i class="ri-map-pin-2-fill"></i></span>
+              <div>
+                <h5>Localisation</h5>
+                <p>Nkomo, Yaoundé - 100m du dépôt de bois</p>
+              </div>
+            </li>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2024 ACORD HOTEL. Tous droits réservés.
+      </div>
+    </footer>
+
+    <!-- Modal d'authentification admin -->
+    <div id="adminLoginModal" class="admin-modal" style="display: none;">
+      <div class="admin-modal-content">
+        <div class="admin-modal-header">
+          <h3><i class="ri-shield-user-line"></i> Accès Administration</h3>
+          <button class="admin-modal-close" id="closeAdminModal">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+        <div class="admin-modal-body">
+          <form id="adminLoginForm">
+            <div class="form-group">
+              <label for="adminUsername">Nom d'utilisateur</label>
+              <input type="text" id="adminUsername" name="username" required 
+                     placeholder="Entrez votre nom d'utilisateur">
+            </div>
+            <div class="form-group">
+              <label for="adminPassword">Mot de passe</label>
+              <input type="password" id="adminPassword" name="password" required 
+                     placeholder="Entrez votre mot de passe">
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <i class="ri-login-box-line"></i> Se connecter
+              </button>
+              <button type="button" class="btn btn-secondary" id="cancelAdminLogin">
+                <i class="ri-close-line"></i> Annuler
+              </button>
+            </div>
+          </form>
+          <div id="adminLoginError" class="admin-error" style="display: none;">
+            <i class="ri-error-warning-line"></i>
+            <span>Nom d'utilisateur ou mot de passe incorrect</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="main.js"></script>
+    <script src="booking.js"></script>
+    <script src="admin-config.js"></script>
+    <script src="admin-auth.js"></script>
+  </body>
+</html>
